@@ -2,6 +2,8 @@
 
 An LTU report template utilizing some styling, and allowing you to work with a document in dark theme.
 
+The following are examples of the [light](https://github.com/JosefUtbult/LTU-Report-Template/blob/main/example_lighttheme.pdf?raw=true) and [dark](https://github.com/JosefUtbult/LTU-Report-Template/blob/main/example_darktheme.pdf?raw=true) themes.
+
 ## Setup
 Begin with installing _TexLive base_, _TexLive fonts_ and _TexLive extras_.
 ```shell
