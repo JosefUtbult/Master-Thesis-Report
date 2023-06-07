@@ -14,6 +14,7 @@
 \usepackage{svg}
 \usepackage{cite}
 \usepackage[parfill]{parskip}
+\usepackage{todonotes}
 
 \geometry{
 	a4paper, 
@@ -26,32 +27,31 @@
 }
 
 \ifdefined\DARKMODE
-
     \definecolor{DarkBackground}{HTML}{1e1e1e}
     \definecolor{DarkText}{HTML}{c8c8c8}
+	
+	\def\BackgroundColor{DarkBackground}
+	\def\TextColor{DarkText}
+	\def\HighlightColor{DarkOrange}
+	\def\URLColor{DarkOrange}
 
-    \pagecolor{DarkBackground}
-    % \def\textColor{Red}
-    \def\textColor{DarkText}
-
-    \color{\textColor}
-
-    \hypersetup{
-        colorlinks=true,
-        linkcolor=\textColor,
-        filecolor=\textColor,      
-        urlcolor=DarkOrange,
-        citecolor=\textColor,
-    } 
 \else
-    \hypersetup{
-        colorlinks=true,
-        linkcolor=black,
-        filecolor=black,      
-        urlcolor=DarkSlateGray,
-        citecolor=Black,
-    }
+	\def\BackgroundColor{White}
+	\def\TextColor{Black}
+	\def\HighlightColor{Chartreuse}
+	\def\URLColor{DarkSlateGray}
 \fi
+
+\pagecolor{\BackgroundColor}
+\color{\TextColor}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=\TextColor,
+	filecolor=\TextColor,      
+	urlcolor=\URLColor,
+	citecolor=\TextColor,
+}
 
 \bibliographystyle{LTU-Report-Theme/IEEEtran}
 
@@ -114,4 +114,11 @@
 \newcommand{\beginromanpagenumbering}{
 	\fancyfoot[C]{\thepage}
 	\pagenumbering{roman}
+}
+
+% Redefine the todo command to get a nice look
+\let\oldtodo\todo
+\renewcommand{\todo}[1]{
+	\renewcommand{\@todonotes@bordercolor}{\BackgroundColor}
+	\oldtodo[inline, color=\HighlightColor]{#1}
 }

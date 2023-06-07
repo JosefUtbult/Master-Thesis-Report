@@ -1,6 +1,6 @@
 # LTU Report Template
 
-An LTU report template utilizing some styling, and allowing you to work with a document in dark theme.
+An LTU report template utilizing some styling, and allowing you to work with a document in dark theme. A custom TODO implementation is also a part of the template, allowing you to write TODOs for your report.
 
 The following are examples of the [light](https://github.com/JosefUtbult/LTU-Report-Template/blob/main/example_lighttheme.pdf?raw=true) and [dark](https://github.com/JosefUtbult/LTU-Report-Template/blob/main/example_darktheme.pdf?raw=true) themes.
 
@@ -38,6 +38,8 @@ You can enable/disable these modes by commenting and uncommenting the lines.
 
 \def\HIGHRES{}
 ```
+
+You can also use the tag `\todo` to get a list of TODOs for your document. The tag `\listoftodos` can then be used to get the list as an index.
 
 ## Building
 The script `build` can be used for building. It will run `pdflatex` in a directory called `out`, giving you a cleaner `src` directory. It will also run `bibtex` for referencing.
