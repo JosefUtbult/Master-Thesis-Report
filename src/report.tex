@@ -37,6 +37,8 @@
 
 \maketitle
 
+\beginromanpagenumbering
+
 % Define the headers after the title page to only apply them everywhere else
 \headerleft{
 	% TODO: Change title
@@ -53,13 +55,12 @@
 }
 
 \tableofcontents
-\beginpagenumbering
+\beginarabicpagenumbering
 
-\begin{multicols}{2}
-	% TODO: Add your own sections and subsections here
-	\input{introduction/introduction.tex}
-	\input{background/background.tex}
-\end{multicols}
+% TODO: Add your own sections and subsections here
+\input{introduction/introduction.tex}
+\input{background/background.tex}
+
 \newpage
 
 % Here the bibliography gets inserted

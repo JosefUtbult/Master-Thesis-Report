@@ -9,12 +9,11 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{hyperref}
-% \usepackage[sorting=none]{biblatex}
-% \usepackage[backend=bibtex,bibencoding=ascii,style=authoryear,sorting=none]{biblatex}
 \usepackage{fancyhdr}
 \usepackage{multicol}
 \usepackage{svg}
 \usepackage{cite}
+\usepackage[parfill]{parskip}
 
 \geometry{a4paper, portrait, margin=2cm}
 
@@ -98,7 +97,13 @@
 	\clearpage
 }
 
-\newcommand{\beginpagenumbering}{
+% Add commands for arabic and roman page numbering
+\newcommand{\beginarabicpagenumbering}{
 	\fancyfoot[C]{\thepage}
 	\pagenumbering{arabic}
+}
+
+\newcommand{\beginromanpagenumbering}{
+	\fancyfoot[C]{\thepage}
+	\pagenumbering{roman}
 }
