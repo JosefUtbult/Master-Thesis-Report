@@ -1,0 +1,66 @@
+\documentclass[11pt,twoside,a4paper]{article}
+
+% Comment this out to get a light theme document
+\def\DARKMODE{}
+
+% Comment this out to get the LTU logo in a high resolution. Use the low resolution when writing to minimize compile time, and the higher when the document is published
+%\def\HIGHRES{}
+
+\usepackage{LTU-Report-Theme/theme}
+
+% Add img/ as a graphics path if you want
+%\graphicspath{{img/}}
+
+% Title page
+\title{
+	% TODO: Change title
+	Fitting cats into Tupperware containers \\
+	% TODO: Change course code
+	C0001S
+}
+
+\author{
+	% TODO: Change name
+	Josef Utbult \\
+	% TODO: Change email
+	\href{mailto:josutb-7@student.ltu.se}{josutb-7@student.ltu.se} \\
+	%
+	Luleå University of Technology \\
+	% TODO: Change institution
+	Department of Computer Science, Electrical and Space Engineering
+}
+
+% TODO: Set an explicit date if you want
+\date{\today}
+
+\begin{document}
+
+\headerleft{
+	% TODO: Change title
+	\textbf{Fitting cats into Tupperware containers} \\
+	% TODO: Change course code
+	\textbf{C0001S}
+}
+
+\headerright{
+	% TODO: Change name
+	Josef Utbult \\
+	% TODO: Change email
+	\href{mailto:josutb-7@student.ltu.se}{josutb-7@student.ltu.se}
+}
+
+\maketitle
+\tableofcontents
+\beginpagenumbering
+
+\begin{multicols}{2}
+	% TODO: Add your own sections and subsections here
+	\input{introduction/introduction.tex}
+	\input{background/background.tex}
+\end{multicols}
+\newpage
+
+% Here the bibliography gets inserted
+\bibliography{refs}
+
+\end{document}

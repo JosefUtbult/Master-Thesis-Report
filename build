@@ -1,0 +1,14 @@
+#!/bin/bash
+
+mkdir -p out
+mkdir -p out/LTU-Report-Theme
+
+cd src
+pdflatex -output-directory=../out report.tex
+
+cd ..
+cp src/LTU-Report-Theme/IEEEtran.bst out/LTU-Report-Theme/IEEEtran.bst
+cp src/refs.bib out/refs.bib
+
+cd out
+bibtex report

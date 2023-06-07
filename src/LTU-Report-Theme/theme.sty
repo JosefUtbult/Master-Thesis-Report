@@ -1,0 +1,104 @@
+\ProvidesPackage{LTU-Report-Theme/theme}
+
+\usepackage[utf8]{inputenc}
+% SVG colors: https://www.latextemplates.com/svgnames-colors
+\usepackage[svgnames]{xcolor}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+% \usepackage[sorting=none]{biblatex}
+% \usepackage[backend=bibtex,bibencoding=ascii,style=authoryear,sorting=none]{biblatex}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{svg}
+\usepackage{cite}
+
+\geometry{a4paper, portrait, margin=2cm}
+
+\ifdefined\DARKMODE
+
+    \definecolor{DarkBackground}{HTML}{1e1e1e}
+    \definecolor{DarkText}{HTML}{c8c8c8}
+
+    \pagecolor{DarkBackground}
+    % \def\textColor{Red}
+    \def\textColor{DarkText}
+
+    \color{\textColor}
+
+    \hypersetup{
+        colorlinks=true,
+        linkcolor=\textColor,
+        filecolor=\textColor,      
+        urlcolor=DarkOrange,
+        citecolor=\textColor,
+    } 
+\else
+    \hypersetup{
+        colorlinks=true,
+        linkcolor=black,
+        filecolor=black,      
+        urlcolor=DarkSlateGray,
+        citecolor=Black,
+    }
+\fi
+
+\bibliographystyle{LTU-Report-Theme/IEEEtran}
+
+% Header and footer styling
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+
+% Define command for header left
+\newcommand{\headerleft}[1]{
+	\fancyhead[L]{#1}
+}
+
+% Define command for header right
+\newcommand{\headerright}[1]{
+	\fancyhead[R]{#1}
+}
+
+% Redefine make title to add image
+\let\oldmaketitle\maketitle
+\renewcommand{\maketitle}{
+	\oldmaketitle
+	\thispagestyle{fancy}
+
+	\begin{figure}
+		\center
+		\ifdefined\DARKMODE
+			\ifdefined\HIGHRES
+				\includegraphics[width=0.4\textwidth]{LTU-Report-Theme/img/ltu_logo_en_dark_highres.png}
+			\else
+				\includegraphics[width=0.4\textwidth]{LTU-Report-Theme/img/ltu_logo_en_dark.png}
+			\fi
+		\else
+			\ifdefined\HIGHRES
+				\includegraphics[width=0.4\textwidth]{LTU-Report-Theme/img/ltu_logo_en_light_highres.png}
+			\else
+				\includegraphics[width=0.4\textwidth]{LTU-Report-Theme/img/ltu_logo_en_light.png}
+			\fi
+		\fi
+		\vspace*{10mm}
+	 \end{figure}
+
+	\clearpage
+}
+
+% Renew table of contents to make it fancy
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{
+	\oldtableofcontents
+	\thispagestyle{fancy}
+	\clearpage
+}
+
+\newcommand{\beginpagenumbering}{
+	\fancyfoot[C]{\thepage}
+	\pagenumbering{arabic}
+}
