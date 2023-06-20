@@ -6,7 +6,6 @@
 \usepackage{hyperref}
 \usepackage{todonotes}
 \usepackage[parfill]{parskip}
-\usepackage{todonotes}
 
 % Define colors for various elements in the document
 % If DARKMODE is defined, the color scheme will be dark. Otherwise, default
@@ -29,16 +28,6 @@
 % Set page and text color
 \pagecolor{\BackgroundColor}
 \color{\TextColor}
-
-\hypersetup{
-	colorlinks=true,
-	linkcolor=\TextColor,
-	filecolor=\TextColor,      
-	urlcolor=\URLColor,
-	citecolor=\TextColor,
-}
-
-\bibliographystyle{LTU-Report-Theme/IEEEtran}
 
 % Set url colors
 \hypersetup{
@@ -82,4 +71,3 @@
 	\renewcommand{\@todonotes@bordercolor}{\BackgroundColor}
 	\oldtodo[inline, color=\HighlightColor]{#1}
 }
-
