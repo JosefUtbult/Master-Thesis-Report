@@ -1,0 +1,71 @@
+\subsection{Plan}
+
+\todo{Should this be in the report?}
+To be able to complete this project, the following parts needs to be done.
+
+\begin{itemize}
+	\item Studying of relevant topics such as the \textit{USB protocol}, the \textit{USB Audio Class}, 
+	implementation the \textit{I2S protocol} and the \textit{STM32 Serial Audio Interface (SAI)} 
+	functionality.
+	%
+	\item Selecting a high quality codec that can handle four input and four output channels, all 
+	running at a sample rate of 48000 Hz.
+	%
+	\item Selecting a microprocessor that can interface with the chosen codec, and also has support for
+	high speed USB. A development board for this specific microprocessor also needs to be available.
+	%
+	\item Designing and building of a PCB that can interface with a development board, containing a codec, 
+	a display, potentiometers and a pin header for debugging the wires between the development board and 
+	the codec.
+	%
+	\item Study the existing software modules for I2S communication and USB Audio classes. This is to make
+	sure that they contain all the necessary components needed for this project \todo{Such as?}. 
+	If these parts aren't present, they will need to be implemented.
+	%
+	\item Creating an architecture of the software layer, containing how each part of it should work and 
+	the flow of information.
+	%
+	\item Build a software layer that follows the described architecture.
+	%
+	\item Create unit tests for parts of the software layer that can be feasible tested.
+	%
+	\item Write documentation for the software layer.
+	%
+	\item Create and build a final PCB that can be used without the development board.
+	%
+	\item Test the audio signals for the board.
+\end{itemize}
+
+A time plan for the completion of the master thesis can be found in Table \ref{table:timeplan}.
+This project started at 6 July 2023, and is set to be finished at 18 October 2023.
+
+The time plan is sectioned of in three sprints. The work that should be done in these sprints will be 
+selected at the start of each sprint.
+
+\begin{table}[]
+	\caption{Time plan for the completion of the master thesis}
+	\todo{I assume this shouldn't be in the final report either}
+	\label{table:timeplan}
+	\begin{tabular}{lll}
+		\textbf{Week} & \textbf{Date} & \textbf{Part} \\
+		V23 & 05 jun & Planning \\
+		V24 & 12 jun & Rapport structuring + Pre study \\
+		V25 & 19 jun & Pre study \\
+		V26 & 26 jun & Pre study + selection of codec and devboard \\
+		V27 & 03 jul & Sprint 1 \\
+		V28 & 10 jun & Sprint 1 \\
+		V29 & 17 jun & Sprint 1 \\
+		V30 & 24 jun & Sprint 1 + Report writing and evaluation \\
+		V31 & 31 jun & Sprint 2 \\
+		V32 & 07 aug & Sprint 2 \\
+		V33 & 14 aug & Sprint 2 + Report writing and evaluation \\
+		V34 & 21 aug & Sprint 3 \\
+		V35 & 28 aug & Sprint 3 \\
+		V36 & 04 sep & Sprint 3 + Report writing and evaluation \\
+		V37 & 11 sep & Final touches on development \\
+		V38 & 18 sep & Report writing \\
+		V39 & 25 sep & Report writing \\
+		V40 & 02 okt & Report writing (First draft) \\
+		V41 & 09 okt & Report writing
+	\end{tabular}
+\end{table}

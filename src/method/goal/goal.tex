@@ -1,0 +1,77 @@
+\subsection{Goals}
+
+The goals for this master thesis is to have made the following.
+
+\subsubsection{Design a PCB}
+
+The project aims to create a platform for audio devices in Rust. For this we will need some hardware 
+that can be tested and measured on.
+
+The PCB for this will therefore have to contain the following in order to meet the goals.
+
+\begin{itemize}
+	\item A codec for converting analog signals from a microphone or sensor to digital samples for
+	processing. 
+	It will also need to be able to convert the digital samples back to analog signals for playback 
+	on a speaker or headphones.
+	This codec needs to be able to process four analog input signals, and four analog output signals.
+	%
+	\item A microprocessor which has support for the protocol used by the codec, and support for high 
+	speed USB.
+	%
+	\item A USB 2.0 port, or a USB type-C port using the USB 2.0 protocol.
+	%
+	\item A display for displaying metrics such as signal amplitude, current volume and gain.
+	%
+	\item A potentiometer for each analog input. These should be connected to the microprocessor for 
+	controlling the gain and/or volume of the specific audio input.
+	%
+	\item A pin header which exposes GPIO pins to the microprocessor, used for easy implementation of 
+	future parts for proof of concept designs \todo{Reformulate}.
+	%
+	\item A pin header which exposes the different wires between the microprocessor and the codec, 
+	for debugging purposes.
+\end{itemize}
+
+The goal with the PCB design is to start by creating a board without a microprocessor, which functions 
+as a HAT \todo{Define HAT} for an external development board.
+This design is then extended to incorporate the microprocessor, which will let it function in a 
+stand-alone mode.
+
+\subsubsection{Software layer}
+
+The software layer that this project aims to create should function as a platform on which future 
+software can be implemented upon.
+This software layer is the main object of this thesis, and it needs to incorporate the following.
+
+\begin{itemize}
+	\item Communication with the codec for initialization and streaming of data. This software needs to 
+	be extendable for allowing exchanging of the codec.
+	%
+	\item Exposing of the sample input and output data in some sort of queue, where an implementation 
+	that uses the software layer should 
+	be able to read the samples, process it and write samples back.
+	%
+	\item The option to include a USB audio class layer, where an implementation should be able to read 
+	and write samples to a USB host. 
+	This should be made compatible with the queue system of the codec, so that an implementation can 
+	read samples from the codec, 
+	process them and send them to the USB host (and vice versa).
+	%
+	\item Unit tests for all the functionality of the software layer to prove software stability and 
+	robustness.
+\end{itemize}
+
+\subsubsection{Documentation}
+
+This software layer should be documented on how each function in it works, how the overall structure of 
+the software layer works, and examples on how to implement it.
+
+\subsubsection{Signal testing}
+
+Tests should be run on the PCB and the running software. The following needs to be measured.
+
+\begin{itemize}
+	\item Signal to noise ratio \todo{Add description of signal to noise ratio}.
+\end{itemize}
+\todo{Add appropriate signal tests}
