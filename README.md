@@ -1,13 +1,15 @@
 # LTU Report Template
 
-An LTU report template utilizing some styling, and allowing you to work with a document in dark theme. A custom TODO implementation is also a part of the template, allowing you to write TODOs for your report.
+An LTU report template based on the [LTU SRT Thesis Template](https://www.overleaf.com/latex/templates/ltu-srt-thesis-template/jnqrnxdqxrvx)
+
+Adding the option to work with a document in dark theme. A custom TODO implementation is also a part of the template, allowing you to write TODOs for your report.
 
 The following are examples of the [light](https://github.com/JosefUtbult/LTU-Report-Template/blob/main/example_lighttheme.pdf?raw=true) and [dark](https://github.com/JosefUtbult/LTU-Report-Template/blob/main/example_darktheme.pdf?raw=true) themes.
 
 ## Setup
-Begin with installing _TexLive base_, _TexLive fonts_ and _TexLive extras_.
+Begin with installing _TexLive full_.
 ```shell
-sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+sudo apt-get install texlive-full
 ```
 
 After that, make sure you can run `pdflatex`

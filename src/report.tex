@@ -1,75 +1,101 @@
-\documentclass[11pt,twoside,a4paper]{article}
+%-------------------------------------------------------------------
+% Build definitions
+%-------------------------------------------------------------------
 
-% Comment this out to get a light theme document
-%\def\DARKMODE{}
+% Uncomment this line if you want to compile the document in dark mode
+\def\DARKMODE{}
 
-% Comment this out to get the LTU logo in a high resolution. Use the low resolution when writing to minimize compile time, and the higher when the document is published
-\def\HIGHRES{}
+% Uncomment this line to use a high resolution version of the LTU logo.
+% Takes longer to compile, so it should only be used for the final 
+% compilation, and not during development
+%\def\HIGHRES{}
 
+% Comment this line out if you want to remove all TODO tags, and the list of TODOs
+\def\TODOLIST{}
+
+%-------------------------------------------------------------------
+% Document class and package definitions
+%-------------------------------------------------------------------
+
+% Apply the document class from SRTs thesis template
+% The original template can be found here: https://www.overleaf.com/latex/templates/ltu-srt-thesis-template/jnqrnxdqxrvx
+\documentclass[12pt,a4paper,openright,final,twoside]{LTU-Report-Theme/cseethesis}
+
+% Use the theme package defined in LTU-Report-Theme, to apply colors
 \usepackage{LTU-Report-Theme/theme}
+
+\begin{document}
+
+% Apply the bibliography file `refs.bib`
+\defaultbibliography{refs}
+
+% Apply default library style with the IEEEtran template
+\bibliographystyle{IEEEtran}
 
 % Add img/ as a graphics path if you want
 %\graphicspath{{img/}}
 
-% Title page
-\title{
-	% TODO: Change title
-	Fitting cats into Tupperware containers \\
-	% TODO: Change course code
-	C0001S
-}
+%-------------------------------------------------------------------
+% Define title, author, etc.
+%-------------------------------------------------------------------
 
-\author{
-	% TODO: Change name
-	Josef Utbult \\
-	% TODO: Change email
-	\href{mailto:josutb-7@student.ltu.se}{josutb-7@student.ltu.se} \\
+% TODO: Change title
+\def\thesistitle{Fitting cats into Tupperware containers}
+
+% TODO: Change author
+\def\theauthor{Josef Utbult}
+\def\theaddress{Dept.\ of Computer Science, Electrical and Space Engineering\\
+Luleå University of Technology\\ Luleå, Sweden}
+
+% TODO: Change supervisors
+\def\supervisors{Prof. Mittens}
+
+% TODO: Change to `Supervisors:` if you have more than one
+\def\supervisorstring{Supervisor:} 
+
+% TODO: Change dedication
+\def\dedication{To all those unfortunate felines that succumb to container-based incidents}
+
+% TODO: Read abstract and preface from separate files.
+% Make sure these exist. See example files.
+\def\theabstract{\input{abstract/abstract.tex}}
+\def\thepreface{\input{preface/preface.tex}}
+
+% Create preamble pages, with the LTU logo
+\createpreamble
+  {\thesistitle}
+  {\theauthor}
+  {\theaddress}
+  {\supervisors}
+  {\dedication}
+  {\theabstract}
+  {\thepreface}
+
+\startchapters
+\begin{bibunit}[IEEEtran]
+	%------------------------ Start chapter 1 --------------------------
+	% The \makechapter command takes three arguments
+	%  1) An abbreviated version of the chapter name,
+	%     to be used as page header
+	%  2) String to be added to the table of contents
+	%  3) The chapter name, possibly split in to lines,
+	%     as in Chapter 2 below.
 	%
-	Luleå University of Technology \\
-	% TODO: Change institution
-	Department of Computer Science, Electrical and Space Engineering
-}
+	%  The different arguments can have different line breaks.
+	%
+	% The actual contents of the chapter is included by removing the
+	% comment from the \input line below. Make sure the files 
+	% "introduction/introduction.tex" and "background/background.tex"
+	% exists.
+	%-------------------------------------------------------------------
 
-% TODO: Set an explicit date if you want
-\date{\today}
+	% TODO: Add your own sections and subsections here
+	\input{introduction/introduction.tex}
+	\input{background/background.tex}
 
-\begin{document}
+	% Add the bibliography at the end
+	\makebib
 
-\maketitle
-
-\beginromanpagenumbering
-
-% Define the headers after the title page to only apply them everywhere else
-\headerleft{
-	% TODO: Change title
-	\textbf{Fitting cats into Tupperware containers} \\
-	% TODO: Change course code
-	\textbf{C0001S}
-}
-
-\headerright{
-	% TODO: Change name
-	Josef Utbult \\
-	% TODO: Change email
-	\href{mailto:josutb-7@student.ltu.se}{josutb-7@student.ltu.se}
-}
-
-\listoftodos
-\newpage
-
-\tableofcontents
-\beginarabicpagenumbering
-
-% TODO: Add your own sections and subsections here
-\input{introduction/introduction.tex}
-\input{background/background.tex}
-
-\newpage
-
-% Here the bibliography gets inserted
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{section}{References}
-\bibliography{refs}
-
+\end{bibunit}
 \end{document}
+

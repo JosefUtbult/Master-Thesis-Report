@@ -1,31 +1,14 @@
 \ProvidesPackage{LTU-Report-Theme/theme}
 
 \usepackage[utf8]{inputenc}
-% SVG colors: https://www.latextemplates.com/svgnames-colors
+%% SVG colors: https://www.latextemplates.com/svgnames-colors
 \usepackage[svgnames]{xcolor}
-\usepackage{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{amsfonts}
-\usepackage{graphicx}
-\usepackage{float}
 \usepackage{hyperref}
-\usepackage{fancyhdr}
-\usepackage{multicol}
-\usepackage{svg}
-\usepackage{cite}
-\usepackage[parfill]{parskip}
 \usepackage{todonotes}
+\usepackage[parfill]{parskip}
 
-\geometry{
-	a4paper, 
-	portrait, 
-	top=3cm, 
-	bottom=2cm, 
-	left=2cm, 
-	right=2cm, 
-	headheight=1cm
-}
-
+% Define colors for various elements in the document
+% If DARKMODE is defined, the color scheme will be dark. Otherwise, default
 \ifdefined\DARKMODE
     \definecolor{DarkBackground}{HTML}{1e1e1e}
     \definecolor{DarkText}{HTML}{c8c8c8}
@@ -42,9 +25,11 @@
 	\def\URLColor{DarkSlateGray}
 \fi
 
+% Set page and text color
 \pagecolor{\BackgroundColor}
 \color{\TextColor}
 
+% Set url colors
 \hypersetup{
 	colorlinks=true,
 	linkcolor=\TextColor,
@@ -53,31 +38,17 @@
 	citecolor=\TextColor,
 }
 
-\bibliographystyle{LTU-Report-Theme/IEEEtran}
-
-% Header and footer styling
-\pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-
-% Define command for header left
-\newcommand{\headerleft}[1]{
-	\fancyhead[L]{#1}
-}
-
-% Define command for header right
-\newcommand{\headerright}[1]{
-	\fancyhead[R]{#1}
-}
-
-% Redefine make title to add image
-\let\oldmaketitle\maketitle
-\renewcommand{\maketitle}{
-	\oldmaketitle
-	\thispagestyle{fancy}
-
-	\begin{figure}
-		\center
+% Redefine the preamble command to automatically include the correct LTU logo
+\newcommand{\createpreamble}[7]{
+\startpreamble
+	{#1}
+	{#2}
+	{#3}
+	{#4}
+	{#5}
+	{#6}
+	{#7}
+	{
 		\ifdefined\DARKMODE
 			\ifdefined\HIGHRES
 				\includegraphics[width=0.4\textwidth]{LTU-Report-Theme/img/ltu_logo_en_dark_highres.png}
@@ -91,29 +62,7 @@
 				\includegraphics[width=0.4\textwidth]{LTU-Report-Theme/img/ltu_logo_en_light.png}
 			\fi
 		\fi
-		\vspace*{10mm}
-	 \end{figure}
-
-	\clearpage
-}
-
-% Renew table of contents to make it fancy
-\let\oldtableofcontents\tableofcontents
-\renewcommand{\tableofcontents}{
-	\oldtableofcontents
-	\thispagestyle{fancy}
-	\clearpage
-}
-
-% Add commands for arabic and roman page numbering
-\newcommand{\beginarabicpagenumbering}{
-	\fancyfoot[C]{\thepage}
-	\pagenumbering{arabic}
-}
-
-\newcommand{\beginromanpagenumbering}{
-	\fancyfoot[C]{\thepage}
-	\pagenumbering{roman}
+	}
 }
 
 % Redefine the todo command to get a nice look

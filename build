@@ -7,8 +7,17 @@ cd src
 pdflatex -output-directory=../out report.tex
 
 cd ..
-cp src/LTU-Report-Theme/IEEEtran.bst out/LTU-Report-Theme/IEEEtran.bst
-cp src/refs.bib out/refs.bib
+cp src/*.bib out/
 
 cd out
 bibtex report
+
+for instance in bu*.aux; do # Whitespace-safe but not recursive.
+	bibtex ${instance%.*}
+done
+
+cd ../src
+
+#pdflatex -output-directory=../out report.tex
+#pdflatex -output-directory=../out report.tex
+
