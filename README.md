@@ -29,9 +29,11 @@ This document uses a file structure for every section and subsection. I recommen
 
 This theme uses the IEEEtran bibliography style to apply the references from the file `refs.bib`. You can find a guide on how to apply this at [Overleaf](https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex)
 
-You have two definitions in the beginning of the file. With `DARKMODE` enabled, the color scheme of the document changes to dark mode. 
+You have three definitions in the beginning of the file. With `DARKMODE` enabled, the color scheme of the document changes to dark mode. 
 
 With `HIGHRES` enabled, a higher resolution LTU logo is used. This takes a second longer to compile and should therefore be used when submitting the report, and not when writing it.
+
+With `TODOLIST` enabled, a list of TODOs will be appended to your document after the abstract.
 
 You can enable/disable these modes by commenting and uncommenting the lines.
 
@@ -39,9 +41,11 @@ You can enable/disable these modes by commenting and uncommenting the lines.
 \def\DARKMODE{}
 
 \def\HIGHRES{}
+
+\def\TODOLIST{}
 ```
 
-You can also use the tag `\todo` to get a list of TODOs for your document. The tag `\listoftodos` can then be used to get the list as an index.
+You can use the tag `\todo` to get a list of TODOs for your document. With `TODOLIST` enabled these will show up as a list.
 
 ## Building
 The script `build` can be used for building. It will run `pdflatex` in a directory called `out`, giving you a cleaner `src` directory. It will also run `bibtex` for referencing.
