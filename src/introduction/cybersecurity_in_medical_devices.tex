@@ -1,0 +1,40 @@
+\section{Cybersecurity in medical devices}
+
+Medical devices are becoming more complex, and more interconnected, with the
+rise of \acrfull{iot} capable medical devices. With this comes the risk of
+cybersecurity problems for these devices. Faults in software adds attack
+surfaces where a device might be compromised by an external actor.
+
+One example of when lack of cybersecurity has affected medical devices is the
+case of St. Jude Medical's Implantable Cardiac Devices.
+
+St. Jude Medical's Implantable Cardiac Devices provides different
+assistance for people with heart conditions.
+These devices include pacemakers,
+defibrillators, and resynchronisation devices. 
+These are connected to a \textit{Merlin@home Transmitter} via
+\acrshort{rf}, which in turn relays the data to the  
+\textit{Merlin.net Patient Network} over WiFi, cellular network or
+landline.
+
+In January 2017, the \acrfull{fda} issued a corrections request for
+the firmware in these devices, as they had reviewed information
+concerning potential cybersecurity vulnerabilities associated with St.
+Jude Medical's \textit{Merlin@home Transmitter}. These possible
+exploits could in theory allow for an unauthorized user to remotely
+access a patients \acrshort{rf}-enabled implant, and modify the
+programming of these devices, which in turn could result in the rapid
+battery depletion. \cite{fda:stJudesMedicalDevices}.
+
+To note is that these request had been issued to the company in
+advance, and that they had created a software patch which was
+validated to solve these issues by the \acrshort{fda}. This patch was
+deployed remotely to all devices connected to the
+\textit{Merlin.net Patient Network}. There have been no reports of
+patient harm related to these cybersecurity vulnerabilities.
+
+This incident, even though nobody was harmed due to it, shows the
+importance of software validation in embedded systems for medical
+devices.
+
+

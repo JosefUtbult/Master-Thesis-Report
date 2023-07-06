@@ -83,7 +83,7 @@
 \usepackage[utf8]{inputenc}
 \RequirePackage[sectionbib]{bibunits}
 %\RequirePackage[sectionbib]{bibunits}
-%\usepackage[acronym]{glossaries}
+\usepackage[acronym]{glossaries}
 %\RequirePackage[latin1]{inputenc}
 \RequirePackage{titletoc}
 \RequirePackage[svgnames]{xcolor}

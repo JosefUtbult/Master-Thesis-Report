@@ -2,7 +2,7 @@
 % Build definitions
 %-------------------------------------------------------------------
 % Uncomment this line if you want to compile the document in dark mode
-\def\DARKMODE{}
+%\def\DARKMODE{}
 
 % Uncomment this line to use a high resolution version of the LTU logo.
 % Takes longer to compile, so it should only be used for the final 
@@ -23,81 +23,87 @@
 % Use the theme package defined in LTU-Report-Theme, to apply colors
 \usepackage{LTU-Report-Theme/theme}
 
+\makeglossaries
+\input{acronyms.tex}
+
 \begin{document}
+	% Apply the bibliography file `refs.bib`
+	\defaultbibliography{refs}
 
-% Apply the bibliography file `refs.bib`
-\defaultbibliography{refs}
+	% Apply default library style with the IEEEtran template
+	\bibliographystyle{IEEEtran}
 
-% Apply default library style with the IEEEtran template
-\bibliographystyle{IEEEtran}
+	% Add img/ as a graphics path if you want
+	\graphicspath{{img/}}
 
-% Add img/ as a graphics path if you want
-%\graphicspath{{img/}}
-
-%-------------------------------------------------------------------
-% Define title, author, etc.
-%-------------------------------------------------------------------
-
-% TODO: Change title
-\def\thesistitle{Building an audio platform for embedded devices in Rust}
-
-% TODO: Change author
-\def\theauthor{Josef Utbult}
-\def\theaddress{Dept.\ of Computer Science, Electrical and Space Engineering\\
-Luleå University of Technology\\ Luleå, Sweden}
-
-% TODO: Change supervisors
-\def\supervisors{Per Lindgren}
-
-% TODO: Change to `Supervisors:` if you have more than one
-\def\supervisorstring{Supervisor:} 
-
-% TODO: Change dedication
-\def\dedication{To my father, who believed in me all the way...}
-
-% TODO: Read abstract and preface from separate files.
-% Make sure these exist. See example files.
-\def\theabstract{\input{abstract/abstract.tex}}
-\def\thepreface{\input{acknowledgements/acknowledgements.tex}}
-
-% Create preamble pages, with the LTU logo
-\createpreamble
-  {\thesistitle}
-  {\theauthor}
-  {\theaddress}
-  {\supervisors}
-  {\dedication}
-  {\theabstract}
-  {\thepreface}
-
-\startchapters
-\begin{bibunit}[IEEEtran]
-	%------------------------ Start chapter 1 --------------------------
-	% The \makechapter command takes three arguments
-	%  1) An abbreviated version of the chapter name,
-	%     to be used as page header
-	%  2) String to be added to the table of contents
-	%  3) The chapter name, possibly split in to lines,
-	%     as in Chapter 2 below.
-	%
-	%  The different arguments can have different line breaks.
-	%
-	% The actual contents of the chapter is included by removing the
-	% comment from the \input line below. Make sure the files 
-	% "introduction/introduction.tex" and "background/background.tex"
-	% exists.
+	%-------------------------------------------------------------------
+	% Define title, author, etc.
 	%-------------------------------------------------------------------
 
-	\input{introduction/introduction.tex}
-	\input{background/background.tex}
-	\input{theory/theory.tex}
-	\input{method/method.tex}
-	\input{result/result.tex}
-	\input{discussion/discussion.tex}
-	\input{conclusion/conclusion.tex}
+	% TODO: Change title
+	\def\thesistitle{Building an audio platform for embedded devices in Rust}
+
+	% TODO: Change author
+	\def\theauthor{Josef Utbult}
+	\def\theaddress{Dept.\ of Computer Science, Electrical and Space Engineering\\
+	Luleå University of Technology\\ Luleå, Sweden}
+
+	% TODO: Change supervisors
+	\def\supervisors{Per Lindgren}
+
+	% TODO: Change to `Supervisors:` if you have more than one
+	\def\supervisorstring{Supervisor:} 
+
+	% TODO: Change dedication
+	\def\dedication{To my father, who believed in me all the way...}
+
+	% TODO: Read abstract and preface from separate files.
+	% Make sure these exist. See example files.
+	\def\theabstract{\input{abstract/abstract.tex}}
+	\def\thepreface{\input{acknowledgements/acknowledgements.tex}}
+
+	% Create preamble pages, with the LTU logo
+	\createpreamble
+		{\thesistitle}
+		{\theauthor}
+		{\theaddress}
+		{\supervisors}
+		{\dedication}
+		{\theabstract}
+		{\thepreface}
+
+	\startchapters
+	\begin{bibunit}[IEEEtran]
+		%------------------------ Start chapter 1 --------------------------
+		% The \makechapter command takes three arguments
+		%  1) An abbreviated version of the chapter name,
+		%     to be used as page header
+		%  2) String to be added to the table of contents
+		%  3) The chapter name, possibly split in to lines,
+		%     as in Chapter 2 below.
+		%
+		%  The different arguments can have different line breaks.
+		%
+		% The actual contents of the chapter is included by removing the
+		% comment from the \input line below. Make sure the files 
+		% "introduction/introduction.tex" and "background/background.tex"
+		% exists.
+		%-------------------------------------------------------------------
+
+		\input{introduction/introduction.tex}
+		\input{background/background.tex}
+		\input{theory/theory.tex}
+		\input{method/method.tex}
+		\input{result/result.tex}
+		\input{discussion/discussion.tex}
+		\input{conclusion/conclusion.tex}
+
+	% Add list of acronyms
+	\printglossary[type=\acronymtype]
 
 	% Add the bibliography at the end
 	\makebib
-\end{bibunit}
+
+	\end{bibunit}
 \end{document}
 
